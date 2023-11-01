@@ -69,7 +69,7 @@ export function FooterApp() {
         </div>
 
         <BtnLink
-          link={`${process.env.NEXT_PUBLIC_API}/admin-dashboard/`}
+          link={"https://distribucionesduque.catalogointeractivo.com.co/admin-dashboard/"}
           title={"ADMI"}
           logo={<CiUser size={20} color="black" />}
         />
