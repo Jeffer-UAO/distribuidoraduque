@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { map, size } from "lodash";
+import { map } from "lodash";
 import { BASE_NAME } from "@/config/constants";
 import { useWhatsApp, useGallery, useCart } from "@/hooks";
 import { toast } from "react-toastify";
@@ -24,7 +24,7 @@ import styles from "./DetailProduct.module.scss";
 export function DetailProduct(props) {
   const { product, relate } = props;
   const { addCart } = useCart();
-  const { getGalleryByCode, gallery, loading, error } = useGallery();
+  const { getGalleryByCode, gallery  } = useGallery();
   const { generateWhatsAppLink, items, selectedItem, handleItemClick } =
     useWhatsApp();
   const { ...productDetall } = product ?? {};

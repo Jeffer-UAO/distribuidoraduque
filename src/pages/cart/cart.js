@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useCart } from "@/hooks/useCart";
 import { Products } from "@/api/products";
-import { Footer, FooterCart, ListCart, NotFound, Redes, Separator } from "@/components";
+import {
+  Footer,
+  FooterCart,
+  ListCart,
+  NotFound,
+  Redes,
+  Separator,
+} from "@/components";
 import { BasicLayout } from "@/layouts";
 import { size } from "lodash";
 import { BASE_NAME } from "@/config/constants";
@@ -34,10 +41,6 @@ export default function CartPage() {
     })();
   }, [cart]);
 
-
-
-
-
   useEffect(() => {
     (async () => {
       try {
@@ -49,7 +52,13 @@ export default function CartPage() {
           for (const key in record) {
             if (
               Object.hasOwnProperty.call(record, key) &&
-              ["name_extend", "quantity", "images", "image_alterna", "ref"].includes(key)
+              [
+                "name_extend",
+                "quantity",
+                "images",
+                "image_alterna",
+                "ref",
+              ].includes(key)
             ) {
               newRecord[key] = record[key];
             }
@@ -61,14 +70,14 @@ export default function CartPage() {
               Referencia: newRecord.ref,
               Cantidad: newRecord.quantity,
               Imagen: BASE_NAME + newRecord.images,
-            },);
+            });
           } else {
             newObjectArray.push({
               Producto: newRecord.name_extend,
               Referencia: newRecord.ref,
               Cantidad: newRecord.quantity,
               Imagen: newRecord.image_alterna,
-            },);
+            });
           }
         }
         const newArrayAsString = JSON.stringify(newObjectArray, null, 2);
@@ -81,37 +90,30 @@ export default function CartPage() {
   }, [product]);
 
   return (
-    <>
-      <BasicLayout>
-        <Redes />
-
-        {load ? (
-          <h1>Cargando ...</h1>
-        ) : (
-          <>
-            {hasProduct ? (
-              <ListCart product={product} />
-            ) : (
-              <NotFound
-                title={"Uppss... en este momento no hay productos en el Carrito"}
-              />
-            )}
-          </>
-        )}
-
-        <FooterCart product={newProduct} />
-        <Footer />
-      </BasicLayout>
-    </>
+    <div>
+      {load ? (
+        <h1>Cargando ...</h1>
+      ) : (
+        <>
+          {hasProduct ? (
+            <ListCart product={product} />
+          ) : (
+            <NotFound
+              title={"Uppss... en este momento no hay productos en el Carrito"}
+            />
+          )}
+        </>
+      )}
+      <FooterCart product={newProduct} />
+    </div>
   );
 }
 
-
 function generarIdentificadorUnico() {
-  const letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  const numeros = '0123456789';
+  const letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const numeros = "0123456789";
 
-  let identificador = '';
+  let identificador = "";
 
   const letraAleatoria = letras[Math.floor(Math.random() * letras.length)];
   identificador += letraAleatoria;
@@ -120,8 +122,6 @@ function generarIdentificadorUnico() {
     const numeroAleatorio = Math.floor(Math.random() * 10);
     identificador += numeros[numeroAleatorio];
   }
-
-
 
   return identificador;
 }
