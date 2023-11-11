@@ -3,10 +3,12 @@
   width: 100%;
 
   img {
+    
     object-fit: cover;
     object-position: center center;
-    max-width: 400px;
-    max-height: 800px;
+    max-width: 25rem;
+  
+  
   }
   h6 {
     white-space: nowrap;
