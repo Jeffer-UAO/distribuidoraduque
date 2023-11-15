@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { map } from "lodash";
+import { map, size } from "lodash";
 import { BASE_NAME } from "@/config/constants";
 import { useWhatsApp, useGallery, useCart } from "@/hooks";
 import { toast } from "react-toastify";
@@ -24,7 +24,7 @@ import styles from "./DetailProduct.module.scss";
 export function DetailProduct(props) {
   const { product, relate } = props;
   const { addCart } = useCart();
-  const { getGalleryByCode, gallery  } = useGallery();
+  const { getGalleryByCode, gallery } = useGallery();
   const { generateWhatsAppLink, items, selectedItem, handleItemClick } =
     useWhatsApp();
   const { ...productDetall } = product ?? {};
@@ -113,7 +113,19 @@ export function DetailProduct(props) {
       <>
         <div className={styles.detailProduct}>
           <div className={styles.product} id="seccion-1">
-            <ImageCarousel images={gallery} />
+            {size(gallery) > 0 ? (
+              <ImageCarousel images={gallery} />
+            ) : productData.images ? (
+              <CardImg
+                alt="Card image cap"
+                src={BASE_NAME + productData.images}
+              />
+            ) : (
+              <CardImg
+                alt="Card image cap"
+                src={productData.image_alterna}
+              />
+            )}
 
             <div className={styles.description}>
               <CardTitle className={styles.title}>
@@ -124,9 +136,7 @@ export function DetailProduct(props) {
                   {productData.price1 > 1 && (
                     <h5>$ {format(productData.price1)} </h5>
                   )}
-                  {productData.price2 > 1 && (
-                    <h5></h5>
-                  )}
+                  {productData.price2 > 1 && <h5></h5>}
                 </div>
               </CardTitle>
 
@@ -163,7 +173,7 @@ export function DetailProduct(props) {
                   <BsWhatsapp size={25} color="white" />
                 </div>
               )}
-             
+
               <Button onClick={() => addProductId(productData.codigo)}>
                 Agregar al Carrito
               </Button>

@@ -95,7 +95,11 @@ export function Available(props) {
   return (
     <div className={styles.list__product}>
       <Link href={`/${product.productData.slug}`}>
-        <CardImg alt="Card image cap" src={product.productData.image_alterna} />
+        {product.productData.images ? (
+          <CardImg alt="Card image cap" src={BASE_NAME +product.productData.images} />
+        ) : (
+          <CardImg alt="Card image cap" src={product.productData.image_alterna} />
+        )}
       </Link>
 
       <h5>{product.productData.name_extend}</h5>

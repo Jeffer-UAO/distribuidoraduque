@@ -11,7 +11,7 @@ export function Listproducts(props) {
       <h4>{title}</h4>
       <div className={styles.product}>
         {map(products, (product, index) => (
-          <>
+          <div key={index}>
             {product.productData.active && (
               <>
                 {!product.productData.soldout ? (
@@ -21,7 +21,7 @@ export function Listproducts(props) {
                 )}
               </>
             )}
-          </>
+          </div>
         ))}
       </div>
     </div>
