@@ -25,8 +25,9 @@ export function DetailProduct(props) {
   const { product, relate } = props;
   const { addCart } = useCart();
   const { getGalleryByCode, gallery } = useGallery();
-  const { generateWhatsAppLink, items, selectedItem, handleItemClick } =
+  const { generateWhatsAppLink, items, seller, selectedItem, handleItemClick } =
     useWhatsApp();
+
   const { ...productDetall } = product ?? {};
 
   const [productData, setProductData] = useState(productDetall[0]);
@@ -110,7 +111,7 @@ export function DetailProduct(props) {
 
   if (product) {
     return (
-      <>
+  
         <div className={styles.detailProduct}>
           <div className={styles.product} id="seccion-1">
             {size(gallery) > 0 ? (
@@ -181,7 +182,7 @@ export function DetailProduct(props) {
             </div>
           </div>
 
-          <div className={styles.relate}>
+          {/* <div className={styles.relate}>
             <p>PRODUCTOS RELACIONADOS</p>
 
             <div className={styles.list}>
@@ -225,7 +226,7 @@ export function DetailProduct(props) {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
 
           <Modal centered isOpen={showModal} toggle={openCloseModal}>
             <ModalHeader toggle={openCloseModal}>Ingrese Cantidad</ModalHeader>
@@ -254,37 +255,38 @@ export function DetailProduct(props) {
             </ModalFooter>
           </Modal>
 
+       
           <Modal centered isOpen={isOpen} toggle={toggleModal}>
-            <ModalHeader toggle={toggleModal}>Seleccione una Lìnea</ModalHeader>
+          <ModalHeader toggle={toggleModal}>Seleccione una Linea</ModalHeader>
 
-            <ModalBody>
-              <FormGroup>
-                {items.map((item, index) => (
-                  <Button
-                    key={index}
-                    color="success"
-                    size="sm"
-                    outline
-                    className={index === selectedItem ? "selected" : ""}
-                    onClick={() => handleItemClick(item)}
-                  >
-                    <BsWhatsapp size={20} /> Linea {index + 1}
-                  </Button>
-                ))}
-              </FormGroup>
-            </ModalBody>
+          <ModalBody>
+            <FormGroup>
+              {items.map((item, index) => (
+                <Button
+                  key={index}
+                  color="success"
+                  size="sm"
+                  outline
+                  className={index === selectedItem ? "selected" : ""}
+                  onClick={() => handleItemClick(item)}
+                >
+                  <BsWhatsapp size={20} /> Linea {index + 1}
+                  <p>{seller[index]}</p>
+                </Button>
+              ))}
+            </FormGroup>
+          </ModalBody>
 
-            <ModalFooter>
-              <Button size="sm" outline color="secondary" onClick={toggleModal}>
-                Cancelar
-              </Button>
-              <Button size="sm" color="success" onClick={addDataToWhatsApp}>
-                Aceptar
-              </Button>
-            </ModalFooter>
-          </Modal>
-        </div>
-      </>
+          <ModalFooter>
+            <Button size="sm" outline color="secondary" onClick={toggleModal}>
+              Cancelar
+            </Button>
+            <Button size="sm" color="success" onClick={addDataToWhatsApp}>
+              Aceptar
+            </Button>
+          </ModalFooter>
+        </Modal>
+      </div>
     );
   } else {
     return <h5> La pagina no existe</h5>;

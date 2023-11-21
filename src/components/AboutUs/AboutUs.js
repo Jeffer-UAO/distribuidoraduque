@@ -51,7 +51,10 @@ export function AboutUs() {
         <h5>Líneas de atención</h5>
         <ul>
      
-          <li>(+57) 315 428 0399</li>
+          <li>(+57) 3174037824</li>
+          <li>(+57) 3174967750</li>
+          <li>(+57) 3167122232</li>
+          <li>(+57) 3154280399</li>
        
         </ul>
       </div>

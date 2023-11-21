@@ -15,6 +15,7 @@ export function ImageCarousel(props) {
       infiniteLoop={true}
       showThumbs={false}
       preventMovementUntilSwipeScrollTolerance={true}
+   
     >
       {map(images, (image, index) => (
         <div className={styles.carousel} key={index}>
