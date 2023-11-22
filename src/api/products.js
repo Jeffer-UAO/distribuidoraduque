@@ -1,13 +1,13 @@
 import { BASE_API } from "../config/constants";
 
 export class Products {
-
   async getProducts() {
     try {
       const url = `${BASE_API}/api/products/?active=true`;
       const response = await fetch(url);
       const result = await response.json();
       if (response.status !== 200) throw result;
+
       return result;
     } catch (error) {
       throw error;
@@ -76,7 +76,7 @@ export class Products {
         throw error;
       }
     } else {
-      return null
+      return null;
     }
   }
 
@@ -93,6 +93,4 @@ export class Products {
       throw error;
     }
   }
-
-
 }

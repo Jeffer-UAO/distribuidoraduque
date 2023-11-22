@@ -1,10 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import styles from "./SearchTable.module.scss";
-import { CardImg } from "reactstrap";
-import { AiOutlineSearch } from "react-icons/ai";
 import classNames from "classnames";
-// import { AiOutlineHeart } from "react-icons/ai";
-import Link from "next/link";
 import { Search } from "./Search";
 import { Products } from "@/api/products";
 
@@ -16,15 +12,12 @@ export function SearchTable() {
   const [search, setSearch] = useState("");
   const [showSearch, setShowSearch] = useState(false);
 
-
   const openCloseSearch = () => setShowSearch((prevState) => !prevState);
-
 
   useEffect(() => {
     // Enfocar el input cuando el componente se monta
     inputRef.current.focus();
   }, []);
-
 
   async function updateState(e) {
     const data = e.target.value;
@@ -44,18 +37,30 @@ export function SearchTable() {
   const filter = (filterTo) => {
     var result = products.filter((item) => {
       if (
-        item.name_extend
-          .toString()
-          .toLowerCase()
-          .includes(filterTo.toLowerCase()) ||
-        item.description
-          .toString()
-          .toLowerCase()
-          .includes(filterTo.toLowerCase()) ||
-        item.description
-          .toString()
-          .toLowerCase()
-          .includes(filterTo.toLowerCase())
+        (item.name_extend &&
+          item.name_extend
+            .toString()
+            .toLowerCase()
+            .includes(filterTo.toLowerCase())) ||
+        (item.description &&
+          item.description
+            .toString()
+            .toLowerCase()
+            .includes(filterTo.toLowerCase())) ||
+        (item.price1 &&
+          item.price1
+            .toString()
+            .toLowerCase()
+            .includes(filterTo.toLowerCase())) ||
+        (item.ref &&
+          item.ref.toString().toLowerCase().includes(filterTo.toLowerCase())) ||
+        (item.codigo &&
+          item.codigo
+            .toString()
+            .toLowerCase()
+            .includes(filterTo.toLowerCase())) ||
+        (item.flag &&
+          item.flag.toString().toLowerCase().includes(filterTo.toLowerCase()))
       ) {
         return item;
       }
@@ -71,7 +76,7 @@ export function SearchTable() {
     <>
       <div className={styles.searchTable}>
         <input
-         ref={inputRef}
+          ref={inputRef}
           onFocus={updateState}
           onBlur={updateState}
           onChange={updateState}
