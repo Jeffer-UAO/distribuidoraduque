@@ -11,6 +11,11 @@ import styles from "./ListCart.module.scss";
 
 export function ListCart(props) {
   const { product } = props;
+
+  const scale = "c_scale,f_auto,q_50,w_80/";
+  const upload = 'image/upload/';
+
+
   const { decreaseCart, incrementCart, deleteCart } = useCart();
   const format = (number) => {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); // Cambia 'es-ES' por tu configuración regional
@@ -25,8 +30,9 @@ export function ListCart(props) {
             {item.images ? (
               <CardImg
                 alt="Card image cap"
-                src={BASE_NAME + item.images}
-                className={styles.skeleton}
+
+                src={BASE_NAME + upload +
+                  scale + item.images.split(upload)[1]}
               />
             ) : (
               <CardImg
