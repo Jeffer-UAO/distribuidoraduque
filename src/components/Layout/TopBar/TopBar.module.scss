@@ -1,11 +1,11 @@
 .topBarComponent .topBar > a > img {
-  max-width: 400px;
+  max-width: 30rem;
 }
 
 /* Media query para pantallas más grandes de 600px */
 @media screen and (min-width: 601px) {
   .topBarComponent .topBar > a > img {
-    max-width: 0px; /* Ajusta el tamaño máximo para pantallas más grandes de 600px */
+    max-width: 0; /* Ajusta el tamaño máximo para pantallas más grandes de 600px */
   }
 
 

@@ -7,7 +7,7 @@ export function TopBar() {
     <div className={styles.topBarComponent}>
       <div className={styles.topBar}>
         <Link href="/">
-          <CardImg src="/image/logo.webp" alt="No hay logo" />{" "}
+          <CardImg src="/image/logo.jpg" alt="No hay logo" />{" "}
         </Link>       
       </div>     
     </div>

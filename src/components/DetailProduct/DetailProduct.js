@@ -38,6 +38,9 @@ export function DetailProduct(props) {
   const [propductAlternaWhatsApp, setPropductAlternaWhatsApp] = useState("");
   const [quantity, setQuantity] = useState(1);
 
+  const scale = "c_scale,f_auto,q_auto,w_800/";
+  const upload = "image/upload/";
+
   const format = (number) => {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   };
@@ -109,6 +112,9 @@ export function DetailProduct(props) {
     }
   };
 
+  
+    
+
   if (product) {
     return (
   
@@ -116,42 +122,43 @@ export function DetailProduct(props) {
           <div className={styles.product} id="seccion-1">
             {size(gallery) > 0 ? (
               <ImageCarousel images={gallery} />
-            ) : productData.images ? (
+            ) : productData?.images ? (
               <CardImg
                 alt="Card image cap"
-                src={BASE_NAME + productData.images}
+                src={BASE_NAME + upload + scale + productData.images?.split(upload)[1]}
               />
             ) : (
               <CardImg
                 alt="Card image cap"
-                src={productData.image_alterna}
+                src={productData?.image_alterna}
               />
             )}
+       
 
             <div className={styles.description}>
               <CardTitle className={styles.title}>
                 <h5 className={styles.name_extend}>
-                  {productData.name_extend}
+                  {productData?.name_extend}
                 </h5>
                 <div className={styles.price}>
-                  {productData.price1 > 1 && (
+                  {productData?.price1 > 1 && (
                     <h5>$ {format(productData.price1)} </h5>
                   )}
-                  {productData.price2 > 1 && <h5></h5>}
+                  {productData?.price2 > 1 && <h5></h5>}
                 </div>
               </CardTitle>
 
-              {productData.images ? (
+              {productData?.images ? (
                 <div
                   className={styles.whatsapp}
                   onClick={() =>
                     addProductToWhatsApp(
-                      productData.images +
+                      productData?.images +
                         " " +
-                        productData.name_extend +
+                        productData?.name_extend +
                         " " +
                         "Referencia: " +
-                        productData.ref
+                        productData?.ref
                     )
                   }
                 >
@@ -178,7 +185,7 @@ export function DetailProduct(props) {
               <Button onClick={() => addProductId(productData.codigo)}>
                 Agregar al Carrito
               </Button>
-              <p>{productData.description}</p>
+              <p>{productData?.description}</p>
             </div>
           </div>
 

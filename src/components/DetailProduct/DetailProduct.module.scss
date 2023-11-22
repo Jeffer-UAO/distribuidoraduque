@@ -3,12 +3,10 @@
   width: 100%;
 
   img {
-    
     object-fit: cover;
     object-position: center center;
-    max-width: 25rem;
-  
-  
+    max-width: 28rem;
+    aspect-ratio: 1/1.4;
   }
   h6 {
     white-space: nowrap;
@@ -19,7 +17,7 @@
 
   .product {
     margin-top: 1px;
-    // background-color: rgba(233, 234, 234, 0.344);
+    background-color: rgb(180, 8, 8);
     .title {
       .name_extend {
         text-transform: uppercase;
