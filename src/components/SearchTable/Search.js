@@ -10,7 +10,7 @@ import { FooterApp } from "@/components/FooterApp";
 export function Search(props) {
   const { products } = props;
 
-  const scale = "c_scale,f_auto,q_10,w_400/";
+  const scale = "c_scale,f_auto,q_50,w_400/";
   const upload = "image/upload/";
 
   const format = (number) => {

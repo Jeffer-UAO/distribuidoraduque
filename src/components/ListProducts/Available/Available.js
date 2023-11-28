@@ -32,7 +32,7 @@ export function Available(props) {
   const [propductWhatsApp, setPropductWhatsApp] = useState("");
   const [propductAlternaWhatsApp, setPropductAlternaWhatsApp] = useState("");
 
-  const scale = "c_scale,f_auto,q_20,w_400/";
+  const scale = "c_scale,f_auto,q_50,w_400/";
   const upload = 'image/upload/';
 
   const format = (number) => {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { map, size } from "lodash";
+import { size } from "lodash";
 import { BASE_NAME } from "@/config/constants";
 import { useWhatsApp, useGallery, useCart } from "@/hooks";
 import { toast } from "react-toastify";
@@ -46,7 +46,7 @@ export function DetailProduct(props) {
   };
 
   useEffect(() => {
-    getGalleryByCode(productData.codigo);
+    getGalleryByCode(productData?.codigo);
   }, []);
 
   const changeDetail = (data) => {

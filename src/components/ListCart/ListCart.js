@@ -12,7 +12,7 @@ import styles from "./ListCart.module.scss";
 export function ListCart(props) {
   const { product } = props;
 
-  const scale = "c_scale,f_auto,q_50,w_80/";
+  const scale = "c_scale,f_auto,q_50,w_150/";
   const upload = 'image/upload/';
 
 
