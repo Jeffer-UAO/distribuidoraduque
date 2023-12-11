@@ -1,7 +1,8 @@
 .listProduct {
   text-align: center;
- width: 100%;
- padding: 0.4rem;
+  width: 100%;
+  padding: 0.4rem;
+  
   h4 {
     text-transform: capitalize;
     margin-bottom: 0.5rem;
@@ -11,10 +12,9 @@
     padding: 0.3rem;
   }
 
-  .product {  
+  .product {
     display: grid;
     gap: 0.4rem;
     grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
-
   }
 }

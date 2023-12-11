@@ -21,9 +21,9 @@ export function SoldOut(props) {
       </div>
 
       {product.productData.image ? (
-        <CardImg alt="Card image cap" src={product.productData.image} />
+        <CardImg alt="Card image cap" src={product.productData?.image} />
       ) : (
-        <CardImg alt="Card image cap" src={product.productData.image_alterna} />
+        <CardImg alt="Card image cap" src={product.productData?.image_alterna} />
       )}
 
       <h5>{product.productData.name_extend}</h5>

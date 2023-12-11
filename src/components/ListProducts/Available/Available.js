@@ -33,7 +33,7 @@ export function Available(props) {
   const [propductAlternaWhatsApp, setPropductAlternaWhatsApp] = useState("");
 
   const scale = "c_scale,f_auto,q_50,w_400/";
-  const upload = 'image/upload/';
+  const upload = "image/upload/";
 
   const format = (number) => {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); // Cambia 'es-ES' por tu configuración regional
@@ -99,17 +99,20 @@ export function Available(props) {
     <div className={styles.list__product}>
       <Link href={`/${product.productData.slug}`}>
         {product.productData.images ? (
-           <CardImg
-                  alt="Card image cap"
-                  src={
-                    BASE_NAME +
-                  upload +
-                  scale +
-                    product.productData.images.split(upload)[1]
-                  }
-                />
+          <CardImg
+            alt="Card image cap"
+            src={
+              BASE_NAME +
+              upload +
+              scale +
+              product.productData?.images.split(upload)[1]
+            }
+          />
         ) : (
-          <CardImg alt="Card image cap" src={product.productData.image_alterna} />
+          <CardImg
+            alt="Card image cap"
+            src={product.productData?.image_alterna}
+          />
         )}
       </Link>
 

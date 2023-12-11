@@ -22,7 +22,7 @@ import { BsWhatsapp } from "react-icons/bs";
 import styles from "./DetailProduct.module.scss";
 
 export function DetailProduct(props) {
-  const { product, relate } = props;
+  const { product } = props;
   const { addCart } = useCart();
   const { getGalleryByCode, gallery } = useGallery();
   const { generateWhatsAppLink, items, seller, selectedItem, handleItemClick } =

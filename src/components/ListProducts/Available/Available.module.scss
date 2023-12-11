@@ -11,10 +11,12 @@
     }  
   
     img {    
-      aspect-ratio: 1/1.5;
+      aspect-ratio: 1/1.2;
       border-radius: 0.5rem;
       object-fit: cover;
       object-position: center center;
+      max-width: 12rem;
+      max-height: 18rem;
     }
   
     h5 {        

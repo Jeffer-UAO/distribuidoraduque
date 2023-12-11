@@ -29,11 +29,13 @@
   }
 
   img {  
-    aspect-ratio: 1/1.5;
+    aspect-ratio: 1/1.2;
     border-top-right-radius: 0.5rem;
     border-top-left-radius: 0.5rem;
     object-fit: cover;
     object-position: center center;
+    max-width: 12rem;
+      max-height: 18rem;
     filter: grayscale(1);
   }
 
